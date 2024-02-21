@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 
 
 # Data
-
 df = pd.read_csv("CarPrice_assignment.csv")
-
 df.head()
 
 
@@ -30,6 +28,7 @@ plt.show()
 
 print("Linear Regression Score: ",linear_reg.score(x_test, y_test))
 
+
 #%% Polynomial Regression
 import numpy as np
 from sklearn.preprocessing import PolynomialFeatures
@@ -51,8 +50,8 @@ plt.plot(x_new,y_head,color = "red")
 plt.show()
 print("Polynomial Regression Score",linear_reg.score(polynomial_reg.transform(x_test),y_test))
 
-#%% Multiple Linear Regression
 
+#%% Multiple Linear Regression
 x = df.iloc[:,[9,10,11,12,13,16,18,19,20,21,22,23,24]].values
 y = df["price"].values.reshape(-1,1)
 
@@ -66,7 +65,6 @@ print("Multiple Linear Regression Score : ",linear_reg.score(x_test_multi, y_tes
 
 
 #%% Decision Tree
-
 from sklearn.tree import DecisionTreeRegressor
 
 decision_tree_reg = DecisionTreeRegressor(random_state = 1)
@@ -74,6 +72,8 @@ decision_tree_reg = DecisionTreeRegressor(random_state = 1)
 decision_tree_reg.fit(x_train_multi,y_train_multi)
 
 print("Decision Tree Regression Score",decision_tree_reg.score(x_test_multi, y_test_multi))
+
+
 #%% Random Forest
 from sklearn.ensemble import RandomForestRegressor
  
